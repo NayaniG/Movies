@@ -1,0 +1,6 @@
+[2022/11/30 15:18:18] layer "signup_pw_divider@3x.png, 66.66% signup_pw_divider@2x.pngdivider": Unsupported extension: pngdivider
+[2022/11/30 15:16:44] layer "example@sitename.com": Unsupported extension: com
+[2022/11/30 15:11:29] layer "email_divider@3x.png, 66.66% email_divider@2x.png": Duplicate path: email_divider@3x.png
+[2022/11/30 15:11:29] layer "email_divider@3x.png, 66.66% email_divider@2x.png": Duplicate path: email_divider@2x.png
+[2022/11/30 15:11:29] layer "abc@xyz.com": Unsupported extension: com
+[2022/11/30 15:21:13] layer "agreements_divider@3x.png, 66.66% agreementsl_divider@2x.png": Duplicate path: agreements_divider@3x.png

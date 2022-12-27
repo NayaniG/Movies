@@ -17,6 +17,17 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
+                    
+                    <key>CFBundleURLTypes</key>
+                         <array>
+                             <dict>
+                                <!--              Google client id                   -->
+                                 <key>com.googleusercontent.apps.125178393671-u40p3m8s6n5b7kgqomeka0fc90128u28</key>
+                                 <array>
+                                     <string>myapp</string>
+                                 </array>
+                             </dict>
+                         </array>
 				</dict>
 			</array>
 		</dict>
