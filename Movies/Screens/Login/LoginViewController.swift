@@ -82,7 +82,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             webSignInWithGoogle()
             
-            
         case .none:
             print("No button clicked")
         case .some(_):
