@@ -6,13 +6,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct MoviesData: Decodable {
-    var items: [Items]?
+class MoviesData: Object, Decodable {
+    var items = List<Items>()
 }
 
-struct Items: Decodable {
-    var id: String?
-    var title: String?
-    var image: String?
+class Items: Object, Decodable {
+    @objc dynamic var  id: String?
+    @objc dynamic var  title: String?
+    @objc dynamic var  image: String?
+    
+    var parentCategory = LinkingObjects(fromType: MoviesData.self, property: "items")
+    
+    enum CodingKeys: String, CodingKey {
+          case id
+          case title
+          case image
+    }
 }
+

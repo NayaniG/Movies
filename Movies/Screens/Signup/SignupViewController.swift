@@ -7,46 +7,32 @@
 
 import UIKit
 import Amplify
+import AWSCognitoIdentityProvider
 import AWSCognitoAuthPlugin
-import AWSMobileClientXCF
 
 class SignupViewController: UIViewController{
     
-    var didChecked = false
+    @IBOutlet weak var SignupView: SignupView!
     
-    @IBOutlet weak var signupNavLabel: UILabel!
-    @IBOutlet weak var signupWithAppleButton: UIButton!
-    @IBOutlet weak var signupWithFacebookButton: UIButton!
-    @IBOutlet weak var signupWithGoogleButton: UIButton!
-    @IBOutlet weak var deviderLabel: UILabel!
-    @IBOutlet weak var requiredField: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var paswordLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var agreeLabel: UILabel!
-    @IBOutlet weak var termsAndConditionsButton: UIButton!
-    @IBOutlet weak var privacyPolicyButton: UIButton!
-    @IBOutlet weak var signupButton: UIButton!
     let userDetails = AuthService.shared.userDetails
-    
     var user: AWSCognitoIdentityUser?
-    var codeDeliveryDetails:AWSCognitoIdentityProviderCodeDeliveryDetailsType?
+    var codeDeliveryDetails: AWSCognitoIdentityProviderCodeDeliveryDetailsType?
+    var didChecked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        SignupView.emailTextField.delegate = self
+        SignupView.passwordTextField.delegate = self
         
         setupUI()
     }
     
     func setupUI(){
-        passwordTextField.isSecureTextEntry = true
-        signupButton.isEnabled = false
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
+        SignupView.passwordTextField.isSecureTextEntry = true
+        SignupView.signupButton.isEnabled = false
+        SignupView.emailTextField.delegate = self
+        SignupView.passwordTextField.delegate = self
     }
     
     @IBAction func didTapBack(){
@@ -55,23 +41,19 @@ class SignupViewController: UIViewController{
     
     
     @IBAction func didTabSocialSignUpButton(_ sender: UIButton) {
-        webSignUp()
-        func webSignUp() {
+        
+        switch sender.restorationIdentifier {
+        case "appleBtn":
+            print("No button clicked")
+        case "FBBtn":
+            print("No button clicked")
             
-            switch sender.restorationIdentifier {
-            case "appleBtn":
-                signUpWithWebUI(account: "apple")
-                
-            case "FBBtn":
-                signUpWithWebUI(account: "facebook")
-                
-            case "googleBtn":
-                signUpWithWebUI(account: "google")
-            case .none:
-                print("No button clicked")
-            case .some(_):
-                print("No button clicked")
-            }
+        case "googleBtn":
+            print("No button clicked")
+        case .none:
+            print("No button clicked")
+        case .some(_):
+            print("No button clicked")
         }
     }
     
@@ -82,11 +64,11 @@ class SignupViewController: UIViewController{
         if sender.currentImage === showPW {
             print("show")
             sender.setImage(hidePW, for: .normal)
-            passwordTextField.isSecureTextEntry = false
+            SignupView.passwordTextField.isSecureTextEntry = false
         }else {
             print("hide")
             sender.setImage(showPW, for: .normal)
-            passwordTextField.isSecureTextEntry = true
+            SignupView.passwordTextField.isSecureTextEntry = true
         }
     }
     
@@ -94,16 +76,16 @@ class SignupViewController: UIViewController{
     @IBAction func didTabSignupButton(_ sender: AnyObject) {
         
         let nameAttribute = AWSCognitoIdentityUserAttributeType(name: "name", value: "Test")
-        let emailAttribute = AWSCognitoIdentityUserAttributeType(name: "email", value: emailTextField.text!)
-        let passwordAttribute = AWSCognitoIdentityUserAttributeType(name: "custom:password", value: passwordTextField.text!)
+        let emailAttribute = AWSCognitoIdentityUserAttributeType(name: "email", value: SignupView.emailTextField.text!)
+        let passwordAttribute = AWSCognitoIdentityUserAttributeType(name: "custom:password", value: SignupView.passwordTextField.text!)
         let attributes:[AWSCognitoIdentityUserAttributeType] = [nameAttribute,emailAttribute,passwordAttribute]
         
         let userPool = AppDelegate.defaultUserPool()
-                
-        userPool.signUp(emailTextField.text!, password: passwordTextField.text!, userAttributes: attributes, validationData: nil)
-            .continueWith { (response) -> Any? in
+        
+        userPool.signUp(SignupView.emailTextField.text!, password: SignupView.passwordTextField.text!, userAttributes: attributes, validationData: nil)
+            .continueWith { [self] (response) -> Any? in
                 if response.error != nil {
-                                        
+                    
                     let alert = UIAlertController(title: "Error", message: (response.error! as NSError).userInfo["message"] as? String, preferredStyle: .alert)
                     
                     DispatchQueue.main.async {
@@ -113,9 +95,9 @@ class SignupViewController: UIViewController{
                     
                 } else {
                     self.user = response.result!.user
-                    // Does user need confirmation?
+
                     if (response.result?.userConfirmed?.intValue != AWSCognitoIdentityUserStatus.confirmed.rawValue) {
-                        // User needs confirmation, so we need to proceed to the verify view controller
+
                         print("@@AWSCognitoIdentityUserStatus \(AWSCognitoIdentityUserStatus.confirmed)")
                         DispatchQueue.main.async {
                             self.codeDeliveryDetails = response.result?.codeDeliveryDetails
@@ -123,50 +105,38 @@ class SignupViewController: UIViewController{
                     }
                     
                     print("@@SIGNED UP")
-                    if (self.userDetails != nil) {
-                        DispatchQueue.main.async {
-                            
-                            if let screen1VC = UIStoryboard.auth
-                                .instantiateViewController(withIdentifier: "Screen1ViewController") as? Screen1ViewController {
-                                
-                                screen1VC.modalPresentationStyle = .fullScreen
-                                self.navigationController?.navigationBar.topItem?.hidesBackButton = true
-                                self.navigationItem.setHidesBackButton(true, animated: true)
-                                self.navigationController?.navigationBar.isHidden = true
-                                self.navigationController?.pushViewController(screen1VC, animated: true)
-                            }
-                        }
-                    }
+                    signedInSuccessfully()
                 }
-                    
+                
                 return nil
             }
     }
+    
     @IBAction func didTapCheckUncheckButton(_ sender: UIButton) {
         let checked = UIImage(named: "checked")
         let unchecked = UIImage(named: "unchecked")
         
         if sender.currentImage === checked {
             print("unchecked")
-            agreeLabel.textColor = UIColor(hexaRGB: "#b3b3b3", alpha: 1)
+            SignupView.agreeLabel.textColor = UIColor(hexaRGB: "#b3b3b3", alpha: 1)
             
             didChecked = false
             sender.setImage(unchecked, for: .normal)
             
-            signupButton.isEnabled = false
-            signupButton.setBackgroundImage(UIImage(named: "signup_button_inactive"), for: .normal)
-            signupButton.setTitleColor(.black, for: .normal)
+            SignupView.signupButton.isEnabled = false
+            SignupView.signupButton.setBackgroundImage(UIImage(named: "signup_button_inactive"), for: .normal)
+            SignupView.signupButton.setTitleColor(.black, for: .normal)
             
         }else {
             print("checked")
-            agreeLabel.textColor = UIColor(hexaRGB: "#007ab7", alpha: 1)
+            SignupView.agreeLabel.textColor = UIColor(hexaRGB: "#007ab7", alpha: 1)
             didChecked = true
             sender.setImage(checked, for: .normal)
             
-            if emailTextField.text != "" && passwordTextField.text != "" {
-                signupButton.isEnabled = true
-                signupButton.setBackgroundImage(UIImage(named: "signup_button_ready"), for: .normal)
-                signupButton.setTitleColor(.white, for: .normal)
+            if SignupView.emailTextField.text != "" && SignupView.passwordTextField.text != "" {
+                SignupView.signupButton.isEnabled = true
+                SignupView.signupButton.setBackgroundImage(UIImage(named: "signup_button_ready"), for: .normal)
+                SignupView.signupButton.setTitleColor(.white, for: .normal)
             }
         }
     }
@@ -178,7 +148,6 @@ class SignupViewController: UIViewController{
         present(alert, animated: true, completion: nil)
     }
     
-    
     @objc func enableSignupButton(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
@@ -187,18 +156,18 @@ class SignupViewController: UIViewController{
             }
         }
         guard
-            let email = emailTextField.text, !email.isEmpty,
-            let password = passwordTextField.text, !password.isEmpty
+            let email = SignupView.emailTextField.text, !email.isEmpty,
+            let password = SignupView.passwordTextField.text, !password.isEmpty
         else {
-            signupButton.isEnabled = false
-            signupButton.setBackgroundImage(UIImage(named: "signup_button_inactive"), for: .normal)
-            signupButton.setTitleColor(.black, for: .normal)
+            SignupView.signupButton.isEnabled = false
+            SignupView.signupButton.setBackgroundImage(UIImage(named: "signup_button_inactive"), for: .normal)
+            SignupView.signupButton.setTitleColor(.black, for: .normal)
             return
         }
         if didChecked {
-            signupButton.isEnabled = true
-            signupButton.setBackgroundImage(UIImage(named: "signup_button_ready"), for: .normal)
-            signupButton.setTitleColor(.white, for: .normal)
+            SignupView.signupButton.isEnabled = true
+            SignupView.signupButton.setBackgroundImage(UIImage(named: "signup_button_ready"), for: .normal)
+            SignupView.signupButton.setTitleColor(.white, for: .normal)
         }
     }
     
@@ -220,7 +189,7 @@ class SignupViewController: UIViewController{
             }
         }
         
-        if emailTextField.text != "" && passwordTextField.text != "" {
+        if SignupView.emailTextField.text != "" && SignupView.passwordTextField.text != "" {
             if !didChecked {
                 let alert = UIAlertController(title: "", message: "Please agree to our terms & condition and privacy policy by checking ‘Agree", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -245,7 +214,6 @@ class SignupViewController: UIViewController{
         }
     }
     
-    
     func signUpWithWebUI(account: String) {
         _ = Amplify.Auth.signInWithWebUI(for: AuthProvider.custom(account), presentationAnchor: self.view.window!) { result in
             switch result {
@@ -257,6 +225,26 @@ class SignupViewController: UIViewController{
             }
         }
     }
+    
+    func signedInSuccessfully() {
+        print("Signed in successfully")
+        
+        AuthService.shared.observeAuthEvents()
+        AuthService.shared.fetchCurrentAuthSession()
+        
+        DispatchQueue.main.async {
+            
+            if let screen1VC = UIStoryboard.auth
+                .instantiateViewController(withIdentifier: "Screen1ViewController") as? Screen1ViewController {
+                
+                screen1VC.modalPresentationStyle = .fullScreen
+                self.navigationItem.setHidesBackButton(true, animated: true)
+                self.navigationController?.navigationBar.isHidden = true
+                self.navigationController?.pushViewController(screen1VC, animated: true)
+            }
+        }
+    }
+    
 }
 
 extension SignupViewController: UITextFieldDelegate {
@@ -275,5 +263,3 @@ extension SignupViewController: UITextFieldDelegate {
         return true
     }
 }
-
-

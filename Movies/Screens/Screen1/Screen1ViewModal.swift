@@ -8,44 +8,89 @@
 import Foundation
 
 protocol MoviesManagerDelegate {
-    func didUpdateMovies(movies: MoviesModal)
     func didFailWithError(error: Error)
 }
 
 struct MovieManager {
     
-    static var sharedObj = MovieManager()
+    static var shared = MovieManager()
+    
+    private init() {}
     
     var delegate: MoviesManagerDelegate?
     
-    let baseURL = "https://imdb-api.com/en/API/Top250Movies/k_pzptd5zy"
+    private var dataTask: URLSessionDataTask?
     
-    func getMovies(onSucess: @escaping([Items]) -> Void) {
+    mutating func getTopMovies(completion: @escaping (MoviesData) -> Void) {
         
-        let urlString = "\(baseURL)"
+        let topMoviesUrl = APIConstants.Screen1URL
         
-        if let url = URL(string: urlString) {
-            print("URL: \(url)")
-                                    
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-     
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
-                    return
-                }
-                
-                if let safeData = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(MoviesData.self, from: data!)
-                        onSucess(decodedData.items!)
-                    } catch {
-                        delegate?.didFailWithError(error: error)
-                    }
-                }
+        guard let url = URL(string: topMoviesUrl) else {return}
+        
+        dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                print("DataTask error: \(error.localizedDescription)")
+                return
             }
-            task.resume()
+            
+            guard let response = response as? HTTPURLResponse else {
+                print("Empty Response")
+                return
+            }
+            print("Response status code: \(response.statusCode)")
+            
+            guard let data = data else {
+                print("Empty Data")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(MoviesData.self, from: data)
+                                                
+                DispatchQueue.main.async {
+                    completion(jsonData)
+                    print("jsonData: \(jsonData)")
+                }
+            } catch let error {
+                print(error)
+            }
         }
+        dataTask?.resume()
     }
+    
+    
+    func getDisplayCount(currentCount: Int, moviesItemsCoutnt: Int) -> Int {
+        print("@@currentCount: \(currentCount)")
+        
+        var displayCount = 0
+        
+        switch (currentCount)  {
+        case 250:
+            displayCount = moviesItemsCoutnt
+            
+        case 200:
+            displayCount = moviesItemsCoutnt
+            
+        case 150:
+            displayCount = moviesItemsCoutnt - 50
+            
+        case 100:
+            displayCount = moviesItemsCoutnt - 100
+            
+        case 50:
+            displayCount = moviesItemsCoutnt - 150
+            
+        case 0:
+            displayCount = moviesItemsCoutnt - 200
+            
+        default:
+            displayCount = moviesItemsCoutnt - 200
+        }
+        return displayCount
+    }
+    
 }
+
+

@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1218869648854183</string>
+				<string>com.googleusercontent.apps.614032059885-08p8gukke9b2eaa9tpv6fbsd0a8e0f4h</string>
+				<string>virtryAuth</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1218869648854183</string>
+	<key>FacebookDisplayName</key>
+	<string>virtryapp</string>
+	<key>GIDClientID</key>
+	<string>614032059885-08p8gukke9b2eaa9tpv6fbsd0a8e0f4h.apps.googleusercontent.com</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -17,17 +41,6 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
-                    
-                    <key>CFBundleURLTypes</key>
-                         <array>
-                             <dict>
-                                <!--              Google client id                   -->
-                                 <key>com.googleusercontent.apps.125178393671-u40p3m8s6n5b7kgqomeka0fc90128u28</key>
-                                 <array>
-                                     <string>myapp</string>
-                                 </array>
-                             </dict>
-                         </array>
 				</dict>
 			</array>
 		</dict>

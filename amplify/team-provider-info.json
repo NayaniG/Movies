@@ -13,11 +13,11 @@
     },
     "categories": {
       "auth": {
-        "moviesd7ffda51": {
+        "movies8a0425eb": {
           "userPoolId": "ap-northeast-1_7Cr2lQ0Fx",
           "userPoolName": "virtryApp",
           "webClientId": "re3c0ssamve5j3gk1an4cv7a6",
-          "nativeClientId": "re3c0ssamve5j3gk1an4cv7a6",
+          "nativeClientId": "2lfmmki2mto53necr3v5phg6v8",
           "identityPoolId": "ap-northeast-1:3c8fee58-cce5-4848-ae6f-06bee4149c16",
           "identityPoolName": "virtryIdpool",
           "allowUnauthenticatedIdentities": false,

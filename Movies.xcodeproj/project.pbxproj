@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44AA954028D9AF77120021C7 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F049260288699CCD621779 /* Pods_Movies.framework */; };
 		59BDD8A92F990D7F08B264D5 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1281CBF1810298A1232A36AC /* awsconfiguration.json */; };
+		7393B99860E8543065DDCD21 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5510EE12BC4B6B1405C26AE4 /* Pods_Movies.framework */; };
 		C716CC1F29559D8700ADC1D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C716CC1E29559D8700ADC1D3 /* UIImage+Extension.swift */; };
-		C729DC1A295089890030C7DF /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C729DC19295089890030C7DF /* AWSAPIPlugin */; };
-		C729DC1C295089890030C7DF /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C729DC1B295089890030C7DF /* AWSCognitoAuthPlugin */; };
-		C729DC1E295089890030C7DF /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C729DC1D295089890030C7DF /* AWSDataStorePlugin */; };
-		C729DC20295089890030C7DF /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = C729DC1F295089890030C7DF /* AWSPluginsCore */; };
-		C729DC22295089890030C7DF /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C729DC21295089890030C7DF /* AWSS3StoragePlugin */; };
-		C729DC24295089890030C7DF /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = C729DC23295089890030C7DF /* Amplify */; };
+		C720F42B296FC91C009223EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C720F42A296FC91C009223EC /* Realm */; };
+		C720F42D296FC91C009223EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C720F42C296FC91C009223EC /* RealmSwift */; };
+		C720F430296FCD85009223EC /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C720F42F296FCD85009223EC /* AWSAPIPlugin */; };
+		C720F432296FCD85009223EC /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C720F431296FCD85009223EC /* AWSCognitoAuthPlugin */; };
+		C720F434296FCD85009223EC /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C720F433296FCD85009223EC /* AWSDataStorePlugin */; };
+		C720F436296FCD85009223EC /* AWSLocationGeoPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C720F435296FCD85009223EC /* AWSLocationGeoPlugin */; };
+		C720F438296FCD85009223EC /* AWSPinpointAnalyticsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C720F437296FCD85009223EC /* AWSPinpointAnalyticsPlugin */; };
+		C720F43A296FCD85009223EC /* AWSPluginsCore in Frameworks */ = {isa = PBXBuildFile; productRef = C720F439296FCD85009223EC /* AWSPluginsCore */; };
+		C720F43C296FCD85009223EC /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = C720F43B296FCD85009223EC /* AWSS3StoragePlugin */; };
+		C720F43E296FCD85009223EC /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = C720F43D296FCD85009223EC /* Amplify */; };
+		C720F44029700354009223EC /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C720F43F29700354009223EC /* SignupView.swift */; };
+		C720F44229700A71009223EC /* LoginViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C720F44129700A71009223EC /* LoginViewModal.swift */; };
 		C729DC262950BFB00030C7DF /* Screen1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729DC252950BFB00030C7DF /* Screen1ViewController.swift */; };
-		C729DC2A2950C91D0030C7DF /* collectionViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729DC282950C91D0030C7DF /* collectionViewCellCollectionViewCell.swift */; };
-		C729DC2B2950C91D0030C7DF /* collectionViewCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C729DC292950C91D0030C7DF /* collectionViewCellCollectionViewCell.xib */; };
+		C729DC2A2950C91D0030C7DF /* collectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C729DC282950C91D0030C7DF /* collectionViewCell.swift */; };
+		C729DC2B2950C91D0030C7DF /* collectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C729DC292950C91D0030C7DF /* collectionViewCell.xib */; };
 		C7312CAD294BD9A0005F8337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7312CAC294BD9A0005F8337 /* AppDelegate.swift */; };
 		C7312CAF294BD9A0005F8337 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7312CAE294BD9A0005F8337 /* SceneDelegate.swift */; };
 		C7312CB1294BD9A0005F8337 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7312CB0294BD9A0005F8337 /* AuthService.swift */; };
@@ -34,18 +40,27 @@
 		C7392E2E295AB734009D851B /* Screen2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7392E2D295AB734009D851B /* Screen2ViewController.swift */; };
 		C74589B729541E8700FA12D1 /* Screen1ViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74589B629541E8700FA12D1 /* Screen1ViewModal.swift */; };
 		C74589B92954218A00FA12D1 /* MoviesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74589B82954218A00FA12D1 /* MoviesData.swift */; };
-		C74589BB295452AB00FA12D1 /* MoviesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74589BA295452AB00FA12D1 /* MoviesModal.swift */; };
+		C755FE92295B5E5B00204770 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C755FE90295B5E5B00204770 /* CastCell.swift */; };
+		C755FE93295B5E5B00204770 /* CastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C755FE91295B5E5B00204770 /* CastCell.xib */; };
+		C756998C29666D2200D389DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756998B29666D2200D389DE /* Constants.swift */; };
+		C796F357295B0D200099C5F2 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796F356295B0D200099C5F2 /* MovieDetails.swift */; };
+		C796F359295B0DCD0099C5F2 /* Screen2ViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796F358295B0DCD0099C5F2 /* Screen2ViewModal.swift */; };
+		C799FD8E296D84C400D2204F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C799FD8D296D84C400D2204F /* LoginView.swift */; };
 		E8CDAA05B887D03BCB1397D6 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 69F32F23F261CF7254BAAAF4 /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1281CBF1810298A1232A36AC /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3C6E893079AFA0CDF83A4362 /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
+		5510EE12BC4B6B1405C26AE4 /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F32F23F261CF7254BAAAF4 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
-		A34200AA8DAC1F05AA67CFC5 /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
+		C714FE1929644A5200FCB6ED /* Movies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Movies.entitlements; sourceTree = "<group>"; };
 		C716CC1E29559D8700ADC1D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		C720F43F29700354009223EC /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		C720F44129700A71009223EC /* LoginViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModal.swift; sourceTree = "<group>"; };
 		C729DC252950BFB00030C7DF /* Screen1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1ViewController.swift; sourceTree = "<group>"; };
-		C729DC282950C91D0030C7DF /* collectionViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		C729DC292950C91D0030C7DF /* collectionViewCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = collectionViewCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		C729DC282950C91D0030C7DF /* collectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionViewCell.swift; sourceTree = "<group>"; };
+		C729DC292950C91D0030C7DF /* collectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = collectionViewCell.xib; sourceTree = "<group>"; };
 		C7312CA9294BD9A0005F8337 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7312CAC294BD9A0005F8337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7312CAE294BD9A0005F8337 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,9 +78,13 @@
 		C7392E2D295AB734009D851B /* Screen2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen2ViewController.swift; sourceTree = "<group>"; };
 		C74589B629541E8700FA12D1 /* Screen1ViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1ViewModal.swift; sourceTree = "<group>"; };
 		C74589B82954218A00FA12D1 /* MoviesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesData.swift; sourceTree = "<group>"; };
-		C74589BA295452AB00FA12D1 /* MoviesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModal.swift; sourceTree = "<group>"; };
-		D3F049260288699CCD621779 /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E95D40B72775B9005EFBFD9A /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
+		C755FE90295B5E5B00204770 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
+		C755FE91295B5E5B00204770 /* CastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCell.xib; sourceTree = "<group>"; };
+		C756998B29666D2200D389DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C796F356295B0D200099C5F2 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		C796F358295B0DCD0099C5F2 /* Screen2ViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen2ViewModal.swift; sourceTree = "<group>"; };
+		C799FD8D296D84C400D2204F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DAEE341371A0822039F2CB38 /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,19 +92,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C729DC1A295089890030C7DF /* AWSAPIPlugin in Frameworks */,
-				C729DC24295089890030C7DF /* Amplify in Frameworks */,
-				44AA954028D9AF77120021C7 /* Pods_Movies.framework in Frameworks */,
-				C729DC1C295089890030C7DF /* AWSCognitoAuthPlugin in Frameworks */,
-				C729DC1E295089890030C7DF /* AWSDataStorePlugin in Frameworks */,
-				C729DC20295089890030C7DF /* AWSPluginsCore in Frameworks */,
-				C729DC22295089890030C7DF /* AWSS3StoragePlugin in Frameworks */,
+				C720F430296FCD85009223EC /* AWSAPIPlugin in Frameworks */,
+				C720F438296FCD85009223EC /* AWSPinpointAnalyticsPlugin in Frameworks */,
+				C720F42B296FC91C009223EC /* Realm in Frameworks */,
+				C720F43C296FCD85009223EC /* AWSS3StoragePlugin in Frameworks */,
+				C720F43A296FCD85009223EC /* AWSPluginsCore in Frameworks */,
+				C720F43E296FCD85009223EC /* Amplify in Frameworks */,
+				C720F434296FCD85009223EC /* AWSDataStorePlugin in Frameworks */,
+				C720F42D296FC91C009223EC /* RealmSwift in Frameworks */,
+				7393B99860E8543065DDCD21 /* Pods_Movies.framework in Frameworks */,
+				C720F436296FCD85009223EC /* AWSLocationGeoPlugin in Frameworks */,
+				C720F432296FCD85009223EC /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11DDCE78B8302CB5E68D72B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE341371A0822039F2CB38 /* Pods-Movies.debug.xcconfig */,
+				3C6E893079AFA0CDF83A4362 /* Pods-Movies.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		77D4EC91C997FBC614C47306 /* AmplifyConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,24 +127,14 @@
 			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
-		AEAC5CA6668C875A452481CC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A34200AA8DAC1F05AA67CFC5 /* Pods-Movies.debug.xcconfig */,
-				E95D40B72775B9005EFBFD9A /* Pods-Movies.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		C729DC272950C8D60030C7DF /* Screen1 */ = {
 			isa = PBXGroup;
 			children = (
 				C729DC252950BFB00030C7DF /* Screen1ViewController.swift */,
-				C729DC282950C91D0030C7DF /* collectionViewCellCollectionViewCell.swift */,
 				C74589B629541E8700FA12D1 /* Screen1ViewModal.swift */,
 				C74589B82954218A00FA12D1 /* MoviesData.swift */,
-				C74589BA295452AB00FA12D1 /* MoviesModal.swift */,
-				C729DC292950C91D0030C7DF /* collectionViewCellCollectionViewCell.xib */,
+				C729DC282950C91D0030C7DF /* collectionViewCell.swift */,
+				C729DC292950C91D0030C7DF /* collectionViewCell.xib */,
 			);
 			path = Screen1;
 			sourceTree = "<group>";
@@ -121,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				C7312CE3294BF319005F8337 /* LoginViewController.swift */,
+				C799FD8D296D84C400D2204F /* LoginView.swift */,
+				C720F44129700A71009223EC /* LoginViewModal.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -129,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				C7312CE5294BF425005F8337 /* SignupViewController.swift */,
+				C720F43F29700354009223EC /* SignupView.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -139,8 +164,8 @@
 				C7312CAB294BD9A0005F8337 /* Movies */,
 				C7312CAA294BD9A0005F8337 /* Products */,
 				77D4EC91C997FBC614C47306 /* AmplifyConfig */,
-				AEAC5CA6668C875A452481CC /* Pods */,
-				EA32A7529E68729C1F7A2E03 /* Frameworks */,
+				11DDCE78B8302CB5E68D72B7 /* Pods */,
+				F094A34B932675C6B6057340 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,12 +180,15 @@
 		C7312CAB294BD9A0005F8337 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				C75699EE2967073700D389DE /* Networking */,
+				C714FE1929644A5200FCB6ED /* Movies.entitlements */,
 				C7312CDF294BF209005F8337 /* App */,
 				C7312CE2294BF23C005F8337 /* Screens */,
 				C7312CE7294BF4F1005F8337 /* Extensions */,
 				C7312CE0294BF227005F8337 /* Storyboards */,
 				C7312CBD294BD9A3005F8337 /* Info.plist */,
 				C7312CB5294BD9A0005F8337 /* Movies.xcdatamodeld */,
+				C756998D29666D7000D389DE /* Helpers */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -211,14 +239,33 @@
 			isa = PBXGroup;
 			children = (
 				C7392E2D295AB734009D851B /* Screen2ViewController.swift */,
+				C796F356295B0D200099C5F2 /* MovieDetails.swift */,
+				C796F358295B0DCD0099C5F2 /* Screen2ViewModal.swift */,
+				C755FE90295B5E5B00204770 /* CastCell.swift */,
+				C755FE91295B5E5B00204770 /* CastCell.xib */,
 			);
 			path = Screen2;
 			sourceTree = "<group>";
 		};
-		EA32A7529E68729C1F7A2E03 /* Frameworks */ = {
+		C756998D29666D7000D389DE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D3F049260288699CCD621779 /* Pods_Movies.framework */,
+				C756998B29666D2200D389DE /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C75699EE2967073700D389DE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F094A34B932675C6B6057340 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5510EE12BC4B6B1405C26AE4 /* Pods_Movies.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,11 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7312CC0294BD9A3005F8337 /* Build configuration list for PBXNativeTarget "Movies" */;
 			buildPhases = (
-				1505ADE1889520865F1CC417 /* [CP] Check Pods Manifest.lock */,
+				06FFF0FB83450B597555F1C6 /* [CP] Check Pods Manifest.lock */,
 				C7312CA5294BD9A0005F8337 /* Sources */,
 				C7312CA6294BD9A0005F8337 /* Frameworks */,
 				C7312CA7294BD9A0005F8337 /* Resources */,
-				9256DCE94991B17E8D8C94E4 /* [CP] Embed Pods Frameworks */,
+				706C5B9DF8AFFB31E4BC450E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,14 +289,18 @@
 			);
 			name = Movies;
 			packageProductDependencies = (
-				C729DC19295089890030C7DF /* AWSAPIPlugin */,
-				C729DC1B295089890030C7DF /* AWSCognitoAuthPlugin */,
-				C729DC1D295089890030C7DF /* AWSDataStorePlugin */,
-				C729DC1F295089890030C7DF /* AWSPluginsCore */,
-				C729DC21295089890030C7DF /* AWSS3StoragePlugin */,
-				C729DC23295089890030C7DF /* Amplify */,
+				C720F42A296FC91C009223EC /* Realm */,
+				C720F42C296FC91C009223EC /* RealmSwift */,
+				C720F42F296FCD85009223EC /* AWSAPIPlugin */,
+				C720F431296FCD85009223EC /* AWSCognitoAuthPlugin */,
+				C720F433296FCD85009223EC /* AWSDataStorePlugin */,
+				C720F435296FCD85009223EC /* AWSLocationGeoPlugin */,
+				C720F437296FCD85009223EC /* AWSPinpointAnalyticsPlugin */,
+				C720F439296FCD85009223EC /* AWSPluginsCore */,
+				C720F43B296FCD85009223EC /* AWSS3StoragePlugin */,
+				C720F43D296FCD85009223EC /* Amplify */,
 			);
-			productName = Movies;
+			productName = MoviesApp;
 			productReference = C7312CA9294BD9A0005F8337 /* Movies.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -278,7 +329,8 @@
 			);
 			mainGroup = C7312CA0294BD9A0005F8337;
 			packageReferences = (
-				C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */,
+				C720F429296FC91C009223EC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */,
 			);
 			productRefGroup = C7312CAA294BD9A0005F8337 /* Products */;
 			projectDirPath = "";
@@ -298,15 +350,16 @@
 				C7312CB9294BD9A3005F8337 /* Assets.xcassets in Resources */,
 				C7312CB4294BD9A0005F8337 /* Main.storyboard in Resources */,
 				59BDD8A92F990D7F08B264D5 /* awsconfiguration.json in Resources */,
+				C755FE93295B5E5B00204770 /* CastCell.xib in Resources */,
 				E8CDAA05B887D03BCB1397D6 /* amplifyconfiguration.json in Resources */,
-				C729DC2B2950C91D0030C7DF /* collectionViewCellCollectionViewCell.xib in Resources */,
+				C729DC2B2950C91D0030C7DF /* collectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1505ADE1889520865F1CC417 /* [CP] Check Pods Manifest.lock */ = {
+		06FFF0FB83450B597555F1C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,7 +381,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9256DCE94991B17E8D8C94E4 /* [CP] Embed Pods Frameworks */ = {
+		706C5B9DF8AFFB31E4BC450E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,7 +405,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C720F44029700354009223EC /* SignupView.swift in Sources */,
 				C7312CE9294BF51A005F8337 /* UIStoryBoard+Extension.swift in Sources */,
+				C756998C29666D2200D389DE /* Constants.swift in Sources */,
 				C7312CED294BF574005F8337 /* String+Extension.swift in Sources */,
 				C74589B729541E8700FA12D1 /* Screen1ViewModal.swift in Sources */,
 				C7312CE6294BF425005F8337 /* SignupViewController.swift in Sources */,
@@ -360,13 +415,17 @@
 				C7312CAD294BD9A0005F8337 /* AppDelegate.swift in Sources */,
 				C7312CB7294BD9A0005F8337 /* Movies.xcdatamodeld in Sources */,
 				C7392E2E295AB734009D851B /* Screen2ViewController.swift in Sources */,
-				C729DC2A2950C91D0030C7DF /* collectionViewCellCollectionViewCell.swift in Sources */,
-				C74589BB295452AB00FA12D1 /* MoviesModal.swift in Sources */,
+				C720F44229700A71009223EC /* LoginViewModal.swift in Sources */,
+				C729DC2A2950C91D0030C7DF /* collectionViewCell.swift in Sources */,
+				C796F359295B0DCD0099C5F2 /* Screen2ViewModal.swift in Sources */,
 				C74589B92954218A00FA12D1 /* MoviesData.swift in Sources */,
 				C729DC262950BFB00030C7DF /* Screen1ViewController.swift in Sources */,
+				C796F357295B0D200099C5F2 /* MovieDetails.swift in Sources */,
+				C755FE92295B5E5B00204770 /* CastCell.swift in Sources */,
 				C7312CE4294BF319005F8337 /* LoginViewController.swift in Sources */,
 				C716CC1F29559D8700ADC1D3 /* UIImage+Extension.swift in Sources */,
 				C7312CAF294BD9A0005F8337 /* SceneDelegate.swift in Sources */,
+				C799FD8E296D84C400D2204F /* LoginView.swift in Sources */,
 				C7312CEB294BF550005F8337 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +506,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -509,10 +569,13 @@
 		};
 		C7312CC1294BD9A3005F8337 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A34200AA8DAC1F05AA67CFC5 /* Pods-Movies.debug.xcconfig */;
+			baseConfigurationReference = DAEE341371A0822039F2CB38 /* Pods-Movies.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Movies/Movies.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JLFWU5DPPH;
@@ -523,13 +586,16 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.Movies;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.MoviesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,10 +604,13 @@
 		};
 		C7312CC2294BD9A3005F8337 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E95D40B72775B9005EFBFD9A /* Pods-Movies.release.xcconfig */;
+			baseConfigurationReference = 3C6E893079AFA0CDF83A4362 /* Pods-Movies.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Movies/Movies.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JLFWU5DPPH;
@@ -552,13 +621,16 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.Movies;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.MoviesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,9 +661,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
+		C720F429296FC91C009223EC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.33.0;
+			};
+		};
+		C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -600,34 +680,54 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C729DC19295089890030C7DF /* AWSAPIPlugin */ = {
+		C720F42A296FC91C009223EC /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			package = C720F429296FC91C009223EC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C720F42C296FC91C009223EC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C720F429296FC91C009223EC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		C720F42F296FCD85009223EC /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSAPIPlugin;
 		};
-		C729DC1B295089890030C7DF /* AWSCognitoAuthPlugin */ = {
+		C720F431296FCD85009223EC /* AWSCognitoAuthPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSCognitoAuthPlugin;
 		};
-		C729DC1D295089890030C7DF /* AWSDataStorePlugin */ = {
+		C720F433296FCD85009223EC /* AWSDataStorePlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSDataStorePlugin;
 		};
-		C729DC1F295089890030C7DF /* AWSPluginsCore */ = {
+		C720F435296FCD85009223EC /* AWSLocationGeoPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSLocationGeoPlugin;
+		};
+		C720F437296FCD85009223EC /* AWSPinpointAnalyticsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSPinpointAnalyticsPlugin;
+		};
+		C720F439296FCD85009223EC /* AWSPluginsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSPluginsCore;
 		};
-		C729DC21295089890030C7DF /* AWSS3StoragePlugin */ = {
+		C720F43B296FCD85009223EC /* AWSS3StoragePlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = AWSS3StoragePlugin;
 		};
-		C729DC23295089890030C7DF /* Amplify */ = {
+		C720F43D296FCD85009223EC /* Amplify */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C729DC18295089890030C7DF /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			package = C720F42E296FCD85009223EC /* XCRemoteSwiftPackageReference "amplify-ios" */;
 			productName = Amplify;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,11 +1,109 @@
 {
   "auth": {
-    "moviesd7ffda51": {
-      "service": "Cognito",
-      "serviceType": "imported",
-      "providerPlugin": "awscloudformation",
+    "movies8a0425eb": {
+      "customAuth": false,
       "dependsOn": [],
-      "customAuth": false
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_movies8a0425eb_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_appleAppId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
+    },
+    "AMPLIFY_auth_movies8a0425eb_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "movies8a0425eb"
+        }
+      ]
     }
   }
 }

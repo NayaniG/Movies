@@ -3,7 +3,6 @@
 //  Movies
 //
 //  Created by SJI-GOA-79 on 16/12/22.
-//
 
 import UIKit
 import Amplify
@@ -12,45 +11,33 @@ import AWSCognitoAuthPlugin
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var signinWithAppleButton: UIButton!
-    @IBOutlet weak var loginWithFacebook: UIButton!
-    @IBOutlet weak var loginWithGoogleButton: UIButton!
-    @IBOutlet weak var deviderLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var paswordLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var forgotPasswordButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var loginButtonLoverlay: UIView!
-    let userDetails = AuthService.shared.userDetails
+    @IBOutlet weak var loginView: LoginView!
+    let screen1VC = Screen1ViewController()
+    var authStatus = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         AuthService.shared.signOutLocally()
-        AuthService.shared.fetchCurrentAuthSession()
+        
+        AuthService.shared.observeAuthEvents()
+        print("AuthService.shared.isSignedIn  2: \(AuthService.shared.isSignedIn)")
+        
+        authStatus = AuthService.shared.isSignedIn
+        
+        if authStatus {
+            signedInSuccessfully()
+        }
+        
         setupUI()
     }
     
     func setupUI(){
-        passwordTextField.isSecureTextEntry = true
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        loginView.passwordTextField.isSecureTextEntry = true
+        loginView.emailTextField.delegate = self
+        loginView.passwordTextField.delegate = self
+        loginView.spinner.isHidden = true
         
-        print("@@AWSCognitoIdentityUserStatus \(AWSCognitoIdentityUserStatus.confirmed)")
-        
-                
-        if userDetails != nil {
-            
-            if let screen1VC = UIStoryboard.auth
-                .instantiateViewController(withIdentifier: "Screen1ViewController") as? Screen1ViewController {
-                screen1VC.modalPresentationStyle = .fullScreen
-                self.navigationItem.setHidesBackButton(true, animated: true)
-                self.navigationController?.navigationBar.isHidden = true
-                self.navigationController?.pushViewController(screen1VC, animated: true)
-            }
-        }
     }
     
     @IBAction func didTapSignUpButton(_ sender: UIButton) {
@@ -72,42 +59,88 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if sender.currentImage === showPW {
             print("show")
             sender.setImage(hidePW, for: .normal)
-            self.passwordTextField.isSecureTextEntry = false
+            loginView.passwordTextField.isSecureTextEntry = false
         }else {
             print("hide")
             sender.setImage(showPW, for: .normal)
-            self.passwordTextField.isSecureTextEntry = true
+            loginView.passwordTextField.isSecureTextEntry = true
         }
     }
     
     @IBAction func didTapSocialSignin(_ sender: UIButton) {
-        print("\(sender.restorationIdentifier ?? "button clicked") clicked")
         
-            switch sender.restorationIdentifier {
-            case "appleButton":
-                signInWithWebUI(account: "apple")
+        print("\(sender.restorationIdentifier ?? "button clicked")")
+        
+        switch sender.restorationIdentifier {
+        case "appleButton":
+            webSignInWithApple()
+            
+        case "FBButton":
+            webSignInWithFacebook()
+            
+        case "googleButton":
+            
+            webSignInWithGoogle()
+            
+            
+        case .none:
+            print("No button clicked")
+        case .some(_):
+            print("No button clicked")
+        }
+    }
+    
+    
+    func webSignInWithApple() {
+        _ = Amplify.Auth.signInWithWebUI(for: .apple, presentationAnchor: AuthService.shared.window) { [self] result in
+            switch result {
+            case .success:
+                print("Signed in with apple")
+                signedInSuccessfully()
                 
-            case "FBButton":
-                signInWithWebUI(account: "facebook")
-                
-            case "googleButton":
-                signInWithWebUI(account: "google")
-                
-            case .none:
-                print("No button clicked")
-            case .some(_):
-                print("No button clicked")
+            case .failure(let error):
+                print(error)
             }
+        }
+    }
+    
+    func webSignInWithFacebook() {
+        _ = Amplify.Auth.signInWithWebUI(for: .facebook, presentationAnchor: AuthService.shared.window) { [self] result in
+            switch result {
+            case .success:
+                print("Signed in with facebook")
+                signedInSuccessfully()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    func webSignInWithGoogle() {
+        _ = Amplify.Auth.signInWithWebUI(for: .google, presentationAnchor: AuthService.shared.window) { [self] result in
+            switch result {
+            case .success:
+                print("Signed in with google")
+                signedInSuccessfully()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     @IBAction func didTapLoginButton(_ sender: UIButton) {
         
         print("didTapLoginButton")
         
-        signInWithEmail(email: emailTextField.text!, password: passwordTextField.text!)
+        signInWithEmail(email: loginView.emailTextField.text!, password: loginView.passwordTextField.text!)
         
         func signInWithEmail(email: String, password: String){
+            loginView.spinner.isHidden = false
+            loginView.spinner.startAnimating()
             let username = email
+            
             _ = Amplify.Auth.signIn(username: username, password: password) {result in
                 
                 switch result {
@@ -119,18 +152,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             let session = try result.get()
                             // It is false if the session has expired.
                             print("@@Is signed in: \(session.isSignedIn)")
-                            
-                                DispatchQueue.main.async {
-                                    
-                                    if let screen1VC = UIStoryboard.auth
-                                        .instantiateViewController(withIdentifier: "Screen1ViewController") as? Screen1ViewController {
-                                        
-                                        screen1VC.modalPresentationStyle = .fullScreen
-                                        self.navigationItem.setHidesBackButton(true, animated: true)
-                                        self.navigationController?.navigationBar.isHidden = true
-                                        self.navigationController?.pushViewController(screen1VC, animated: true)
-                                    }
-                                }
+                            signedInSuccessfully()
                             
                         } catch {
                             print(error.localizedDescription)
@@ -150,20 +172,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    func signInWithWebUI(account: String) {
-        _ = Amplify.Auth.signInWithWebUI(for: AuthProvider.custom(account), presentationAnchor: self.view.window!) { result in
-            switch result {
-            case .success:
-                print("Signed in")
+    func signedInSuccessfully() {
+        print("Signed in successfully")
+        DispatchQueue.main.async {
+            
+            if let screen1VC = UIStoryboard.auth
+                .instantiateViewController(withIdentifier: "Screen1ViewController") as? Screen1ViewController {
                 
-            case .failure(let error):
-                print(error)
+                screen1VC.modalPresentationStyle = .fullScreen
+                self.navigationItem.setHidesBackButton(true, animated: true)
+                self.navigationController?.navigationBar.isHidden = true
+                self.navigationController?.pushViewController(screen1VC, animated: true)
+                self.loginView.spinner.isHidden = true
+                self.loginView.spinner.stopAnimating()
             }
         }
     }
 }
-
 
 extension LoginViewController: UITextViewDelegate {
     
@@ -208,17 +233,19 @@ extension LoginViewController: UITextViewDelegate {
             }
         }
         guard
-            let email = self.emailTextField.text, !email.isEmpty,
-            let password = self.passwordTextField.text, !password.isEmpty
+            let email = loginView.emailTextField.text, !email.isEmpty,
+            let password = loginView.passwordTextField.text, !password.isEmpty
         else {
-            self.loginButton.setTitleColor(.black, for: .normal)
-            self.loginButton.setBackgroundImage(UIImage(named: "login_button_inactive"), for: .normal)
-            loginButtonLoverlay.isHidden = false
+            loginView.loginButton.setTitleColor(.black, for: .normal)
+            loginView.loginButton.setBackgroundImage(UIImage(named: "login_button_inactive"), for: .normal)
+            loginView.loginButtonLoverlay.isHidden = false
             
             return
         }
-        self.loginButton.setBackgroundImage(UIImage(named: "login_button_ready"), for: .normal)
-        self.loginButton.setTitleColor(.white, for: .normal)
-        loginButtonLoverlay.isHidden = true
+        loginView.loginButton.setBackgroundImage(UIImage(named: "login_button_ready"), for: .normal)
+        loginView.loginButton.setTitleColor(.white, for: .normal)
+        loginView.loginButtonLoverlay.isHidden = true
     }
 }
+
+

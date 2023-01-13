@@ -6,6 +6,5 @@ target 'Movies' do
   use_frameworks!
 
   # Pods for Movies
-  
   pod 'IQKeyboardManagerSwift'
-  end
+end
