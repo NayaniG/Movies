@@ -9,6 +9,7 @@ import UIKit
 import Amplify
 import AWSCognitoIdentityProvider
 import AWSCognitoAuthPlugin
+import AWSCognitoIdentityProviderASF
 
 class SignupViewController: UIViewController{
     
@@ -44,12 +45,12 @@ class SignupViewController: UIViewController{
         
         switch sender.restorationIdentifier {
         case "appleBtn":
-            print("No button clicked")
+            webSignUpWithApple()
         case "FBBtn":
-            print("No button clicked")
+            webSignUpWithFacebook()
             
         case "googleBtn":
-            print("No button clicked")
+            webSignupWithGoogle()
         case .none:
             print("No button clicked")
         case .some(_):
@@ -214,11 +215,39 @@ class SignupViewController: UIViewController{
         }
     }
     
-    func signUpWithWebUI(account: String) {
-        _ = Amplify.Auth.signInWithWebUI(for: AuthProvider.custom(account), presentationAnchor: self.view.window!) { result in
+    func webSignUpWithApple() {
+        _ = Amplify.Auth.signInWithWebUI(for: .apple, presentationAnchor: AuthService.shared.window) { [self] result in
             switch result {
             case .success:
-                print("Signed in")
+                print("Signed in with apple")
+                signedInSuccessfully()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func webSignUpWithFacebook() {
+        _ = Amplify.Auth.signInWithWebUI(presentationAnchor: AuthService.shared.window) { [self] result in
+            switch result {
+            case .success:
+                print("Signed in with facebook")
+                signedInSuccessfully()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    func webSignupWithGoogle() {
+                
+        _ = Amplify.Auth.signInWithWebUI(presentationAnchor: AuthService.shared.window) { [self] result in
+            switch result {
+            case .success:
+                print("Signed in with google")
+                signedInSuccessfully()
                 
             case .failure(let error):
                 print(error)

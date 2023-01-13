@@ -8,6 +8,7 @@
 import UIKit
 import Realm
 import RealmSwift
+import Amplify
 
 class Screen1ViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class Screen1ViewController: UIViewController {
     @IBOutlet weak var loadMoreButton: UIButton!
     
     var displayData = MoviesData()
-    var moviesItems = List<Items>()
+    var moviesItems = MovieManager.shared.items
     var displayCount: Int = 0
     let realm = try! Realm()
     
@@ -65,13 +66,41 @@ class Screen1ViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     @IBAction func didTapLogoutButton(_ sender: UIButton) {
+        
         AuthService.shared.signOutLocally()
-        AuthService.shared.observeAuthEvents()
-        AuthService.shared.fetchCurrentAuthSession()
-        self.navigationController?.popViewController(animated: true)
+        
+        var authStatus = AuthService.shared.isSignedIn
+        
+        print("AuthService.shared.isSignedIn  4: \(authStatus)")
+        
+        
+        Amplify.Auth.signOut() { result in
+            switch result {
+            case .success:
+                print("Successfully signed out")
+                AuthService.shared.observeAuthEvents()
+                AuthService.shared.fetchCurrentAuthSession()
+                
+                
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+
+                
+            case .failure(let error):
+                print("Sign out failed with error \(error)")
+            }
+        }
+        
+//        if !AuthService.shared.isSignedIn {
+//            DispatchQueue.main.async {
+//                self.navigationController?.popViewController(animated: true)
+//            }
+//        }
+
     }
+
     
     @IBAction func didTapLoadMore(_ sender: UIButton) {
         

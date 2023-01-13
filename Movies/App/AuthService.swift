@@ -14,6 +14,7 @@ class AuthService {
     static let shared = AuthService()
     let userDetails = Amplify.Auth.getCurrentUser()
     var isSignedIn = false
+    let screen1Vc = Screen1ViewController()
     
     private init() {}
     
@@ -67,6 +68,8 @@ class AuthService {
             switch result {
             case .success:
                 print("Successfully signed out")
+                self.observeAuthEvents()
+                self.fetchCurrentAuthSession()
                 
             case .failure(let error):
                 print("Sign out failed with error \(error)")

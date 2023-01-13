@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol MoviesManagerDelegate {
     func didFailWithError(error: Error)
@@ -18,6 +19,8 @@ struct MovieManager {
     private init() {}
     
     var delegate: MoviesManagerDelegate?
+    
+    let items = List<Items>()
     
     private var dataTask: URLSessionDataTask?
     

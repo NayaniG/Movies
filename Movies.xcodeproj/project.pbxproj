@@ -180,7 +180,6 @@
 		C7312CAB294BD9A0005F8337 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				C75699EE2967073700D389DE /* Networking */,
 				C714FE1929644A5200FCB6ED /* Movies.entitlements */,
 				C7312CDF294BF209005F8337 /* App */,
 				C7312CE2294BF23C005F8337 /* Screens */,
@@ -253,13 +252,6 @@
 				C756998B29666D2200D389DE /* Constants.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		C75699EE2967073700D389DE /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		F094A34B932675C6B6057340 /* Frameworks */ = {

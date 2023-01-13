@@ -8,6 +8,7 @@ import UIKit
 import Amplify
 import AWSCognitoIdentityProvider
 import AWSCognitoAuthPlugin
+import RealmSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -37,7 +38,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginView.emailTextField.delegate = self
         loginView.passwordTextField.delegate = self
         loginView.spinner.isHidden = true
-        
     }
     
     @IBAction func didTapSignUpButton(_ sender: UIButton) {

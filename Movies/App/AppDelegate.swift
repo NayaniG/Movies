@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AWSCognitoIdentityInterac
         
         IQKeyboardManager.shared.enable = true
         
-
         do {
             let realm = try! Realm()
             try! realm.write {
@@ -54,17 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AWSCognitoIdentityInterac
         } catch {
             print("An error occurred setting up Amplify: \(error)")
         }
-        print("AuthService.shared.isSignedIn  1: \(AuthService.shared.isSignedIn)")
-        
-        AuthService.shared.signOutLocally()
-                
+                        
         AuthService.shared.observeAuthEvents()
         AuthService.shared.fetchCurrentAuthSession()
         
-//        if AuthService.shared.isSignedIn {
-//            var loginVc = LoginViewController()
-//            loginVc.signedInSuccessfully()
-//        }
+        print("AuthService.shared.isSignedIn  1: \(AuthService.shared.isSignedIn)")
+
     }
     
     func setupCognitoUserPool() {
