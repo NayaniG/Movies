@@ -229,21 +229,21 @@ class SignupViewController: UIViewController{
     }
     
     func webSignUpWithFacebook() {
-        _ = Amplify.Auth.signInWithWebUI(presentationAnchor: AuthService.shared.window) { [self] result in
+        _ = Amplify.Auth.signInWithWebUI(for: .facebook, presentationAnchor: AuthService.shared.window) { [self] result in
             switch result {
             case .success:
                 print("Signed in with facebook")
                 signedInSuccessfully()
                 
             case .failure(let error):
-                print(error)
+                print(error) 
             }
         }
     }
 
     func webSignupWithGoogle() {
                 
-        _ = Amplify.Auth.signInWithWebUI(presentationAnchor: AuthService.shared.window) { [self] result in
+        _ = Amplify.Auth.signInWithWebUI(for: .google, presentationAnchor: AuthService.shared.window) { [self] result in
             switch result {
             case .success:
                 print("Signed in with google")
